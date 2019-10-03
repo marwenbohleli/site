@@ -55,9 +55,10 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build && mv public dist && cp src/assets-root/* dist",
+    "build": "gatsby build && mv public dist && cp src/assets-root/* dist && npm run fixSitemap",
     "buildprod": "npm run syncProd && npm run prepareContent && gatsby build && mv public dist && cp src/assets-root/* dist",
     "develop": "gatsby develop",
+    "fixSitemap": "node scripts/utils/fix-sitemap.js",
     "format": "prettier --write 'src/**/*.js'",
     "lint": "eslint ./src/ --ext .js --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -89,6 +90,7 @@
     "remark-html": "^8.0.0",
     "remark-parse": "^5.0.0",
     "unified": "^7.0.0",
+    "xml2js": "^0.4.22",
     "yamljs": "^0.3.0"
   },
   "repository": {
